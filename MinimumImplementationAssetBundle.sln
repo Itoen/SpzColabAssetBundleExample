@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio for Mac
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimumImplementationAssetBundle", "MinimumImplementationAssetBundle.csproj", "{D326768C-AFF6-5248-325D-B36F784BFCCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimumImplementationAssetBundle.Editor", "MinimumImplementationAssetBundle.Editor.csproj", "{8B25327A-99DF-2A6D-0649-8CC8000689B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D326768C-AFF6-5248-325D-B36F784BFCCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D326768C-AFF6-5248-325D-B36F784BFCCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D326768C-AFF6-5248-325D-B36F784BFCCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D326768C-AFF6-5248-325D-B36F784BFCCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B25327A-99DF-2A6D-0649-8CC8000689B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B25327A-99DF-2A6D-0649-8CC8000689B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B25327A-99DF-2A6D-0649-8CC8000689B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B25327A-99DF-2A6D-0649-8CC8000689B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
