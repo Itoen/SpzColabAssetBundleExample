@@ -14,10 +14,7 @@ public class test : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        var assetBundleManagerSingleton = AssetBundleManagerSingleton.Instance;
-
-        assetBundleManagerSingleton.LoadFromCacheOrDownloadAssetBundle(assetBundleName, this.OnAssetBundleError, this.OnDownloadedAssetBundle);
-
+        StartCoroutine(this.DownloadRequestCoroutine());
     }
 
     // Update is called once per frame
@@ -46,5 +43,17 @@ public class test : MonoBehaviour
     private void OnAssetBundleError (string errorMessage)
     {
         Debug.LogError(errorMessage);
+    }
+
+    private IEnumerator DownloadRequestCoroutine ()
+    {
+        var assetBundleManagerSingleton = AssetBundleManagerSingleton.Instance;
+
+        while (!assetBundleManagerSingleton.IsInitialized)
+        {
+            yield return null;
+        }
+
+        assetBundleManagerSingleton.LoadFromCacheOrDownloadAssetBundle(assetBundleName, this.OnAssetBundleError, this.OnDownloadedAssetBundle);
     }
 }

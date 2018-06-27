@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -103,6 +104,28 @@ public class AssetBundleInfoManager
 
         this.assetBundleInfoList.AssetBundleInfoDictionary.TryGetValue(assetBundleName, out result);
         return result;
+    }
+
+    /// <summary>
+    /// 依存アセットバンドルの情報を取得する
+    /// </summary>
+    /// <returns>依存アセットバンドルの情報</returns>
+    /// <param name="assetBundleInfo">アセットバンドル情報</param>
+    public AssetBundleInfo[] GetDependenceInfos (AssetBundleInfo assetBundleInfo)
+    {
+        var dependenciesInfos = new List<AssetBundleInfo>();
+        foreach (var dependenciesName in assetBundleInfo.DependenciesBundleNames)
+        {
+            if (!this.CheckAssetBundleNameExists(dependenciesName))
+            {
+                continue;
+            }
+
+            var dependenceInfo = this.GetAssetBundleInfo(dependenciesName);
+            dependenciesInfos.Add(dependenceInfo);
+        }
+
+        return dependenciesInfos.ToArray();
     }
 
     #endregion // Methods

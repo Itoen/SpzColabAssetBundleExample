@@ -51,6 +51,25 @@ public class OnMemoryAssetBundleManager
     }
 
     /// <summary>
+    /// メモリ上に存在しないアセットバンドル名のみ取得する
+    /// </summary>
+    /// <returns>メモリ上に存在しないアセットバンドルの名前</returns>
+    /// <param name="assetBundleNames">チェックするアセットバンドル名</param>
+    public string[] GetNoOnMemoryNames (params string[] assetBundleNames)
+    {
+        var noMemoryNames = new List<string>();
+        foreach (var assetBundleName in assetBundleNames)
+        {
+            if (!this.CheckAssetBundleExists(assetBundleName))
+            {
+                noMemoryNames.Add(assetBundleName);
+            }
+        }
+
+        return noMemoryNames.ToArray();
+    }
+
+    /// <summary>
     /// アセットバンドルのアンロード
     /// </summary>
     /// <param name="assetBundleName">アセットバンドル名</param>

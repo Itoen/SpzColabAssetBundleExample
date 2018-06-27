@@ -28,11 +28,17 @@ public class AssetLoader
 
         if (assetBundleRequest.asset == null)
         {
-            onError.Invoke(string.Format("{0}/{1} AssetLoadFailed.", assetBundle.name, assetName));
+            if (onError != null)
+            {
+                onError.Invoke(string.Format("{0}/{1} AssetLoadFailed.", assetBundle.name, assetName));
+            }
             yield break;
         }
 
-        onCompleted.Invoke(assetBundleRequest.asset as T);
+        if (onCompleted != null)
+        {
+            onCompleted.Invoke(assetBundleRequest.asset as T);
+        }
     }
 
     /// <summary>
@@ -55,10 +61,16 @@ public class AssetLoader
 
         if (assetBundleRequest.allAssets == null || assetBundleRequest.allAssets.Length <= 0)
         {
-            onError.Invoke(string.Format("{0} AllAssetsLoadFailed.", assetBundle.name));
+            if (onError != null)
+            {
+                onError.Invoke(string.Format("{0} AllAssetsLoadFailed.", assetBundle.name));
+            }
             yield break;
         }
 
-        onCompleted.Invoke(assetBundleRequest.allAssets);
+        if (onCompleted != null)
+        {
+            onCompleted.Invoke(assetBundleRequest.allAssets);
+        }
     }
 }
