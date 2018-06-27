@@ -82,6 +82,7 @@ public class AssetBundleManagerSingleton : SingletonMonoBehaviour<AssetBundleMan
             {
                 onError.Invoke("初期化が終了していません");
             }
+            return;
         }
 
         if (this.onMemoryAssetBundleManager.CheckAssetBundleExists(assetBundleName))
@@ -89,6 +90,15 @@ public class AssetBundleManagerSingleton : SingletonMonoBehaviour<AssetBundleMan
             if (onCompleted != null)
             {
                 onCompleted.Invoke();
+            }
+            return;
+        }
+
+        if (!this.assetBundleInfoManager.CheckAssetBundleNameExists(assetBundleName))
+        {
+            if (onError != null)
+            {
+                onError.Invoke("指定されたアセットバンドル名のアセットバンドルが見つかりません");
             }
             return;
         }
